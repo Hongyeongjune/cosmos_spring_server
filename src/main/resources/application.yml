@@ -4,9 +4,9 @@ spring:
 #    url: jdbc:mysql://localhost:3306/termproject?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 #    username: hong9
 #    password: sec031031!
-    url: jdbc:mysql://localhost:3306/cosmos?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: cosmos_user
-    password: cosmos_user
+    url: jdbc:mysql://db.cwv3ildpq0id.us-east-2.rds.amazonaws.com:3306/cosmos?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: cosmos
+    password: sec031031!
   jpa:
     hibernate:
       ddl-auto: update
