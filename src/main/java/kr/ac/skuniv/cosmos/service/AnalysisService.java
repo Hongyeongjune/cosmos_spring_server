@@ -7,8 +7,11 @@ import kr.ac.skuniv.cosmos.domain.dto.AnalysisDto;
 import kr.ac.skuniv.cosmos.domain.dto.AnalysisResultDto;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @Service
 public class AnalysisService {
@@ -44,7 +47,6 @@ public class AnalysisService {
     }
 
     public AnalysisDto analysisTest2(AnalysisDto analysisDto) {
-
 
 
         if(analysisDto.getAnalysisType().equals("wsdAPI")) {
@@ -107,5 +109,12 @@ public class AnalysisService {
                 .text(analysisDto.getText())
                 .build();
 
+    }
+
+    public List<AnalysisDto> analysisListService(List<AnalysisDto> analysisDtos) {
+
+       List<AnalysisDto> result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morpList", analysisDtos, List.class);
+
+        return result;
     }
 }

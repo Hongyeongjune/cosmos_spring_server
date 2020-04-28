@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cosmos/kStars")
 public class AnalysisController {
@@ -31,5 +33,10 @@ public class AnalysisController {
     @PostMapping("/test")
     public ResponseEntity<AnalysisDto> reactController(@RequestBody AnalysisDto analysisDto) {
         return ResponseEntity.ok(analysisService.reactTest(analysisDto));
+    }
+
+    @PostMapping("/analysisList")
+    public ResponseEntity<List<AnalysisDto>> analysisListController(@RequestBody List<AnalysisDto> analysisDtos) {
+        return ResponseEntity.ok(analysisService.analysisListService(analysisDtos));
     }
 }
