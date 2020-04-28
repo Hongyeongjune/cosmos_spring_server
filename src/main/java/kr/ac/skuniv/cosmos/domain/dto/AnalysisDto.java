@@ -9,6 +9,7 @@ import lombok.*;
 @Builder
 public class AnalysisDto {
 
+    private Long brdno;
     private String analysisType;
     private String talker;
     private String text;
