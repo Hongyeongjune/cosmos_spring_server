@@ -1,6 +1,8 @@
 package kr.ac.skuniv.cosmos.service;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.ac.skuniv.cosmos.domain.dto.AnalysisDto;
@@ -11,7 +13,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AnalysisService {
@@ -113,7 +118,7 @@ public class AnalysisService {
 
     public List<AnalysisDto> analysisListService(List<AnalysisDto> analysisDtos) {
 
-       List<AnalysisDto> result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/morpList", analysisDtos, List.class);
+        List<AnalysisDto> result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/morpList", analysisDtos, List.class);
 
         return result;
     }
