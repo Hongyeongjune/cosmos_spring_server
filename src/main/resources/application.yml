@@ -13,6 +13,18 @@ spring:
     generate-ddl: true
     show-sql: true
     database: mysql
+
+    servlet:
+      multipart:
+        enabled: true
+        max-file-size: 100MB
+        max-request-size: 100MB
+
+resources:
+#  file-locations: C:\KStarsFile\
+#  file-url: 127.0.0.1:8080
+  file-locations : /home/ubuntu/ec2-user/file/
+  file-url : 18.221.109.14:8080
 restTemplate:
   factory:
     readTimeout: 5000
