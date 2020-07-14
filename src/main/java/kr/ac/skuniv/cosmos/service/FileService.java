@@ -1,5 +1,6 @@
 package kr.ac.skuniv.cosmos.service;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.UUID;
@@ -40,7 +43,10 @@ public class FileService {
                 .path(fileName)
                 .toUriString();
 
-        return fileUrl;
+        String path = environment.getProperty(FILE_PATH) + savePath + File.separator + fileName;
+        System.out.println(path);
+        System.out.println(fileUrl);
+        return path;
     }
 
     private String makePath(String uploadPath) {
@@ -71,6 +77,22 @@ public class FileService {
             }
         }
 
+    }
+
+    public byte[] getFileResource(String url) {
+
+        byte[] result = null;
+        try{
+            File file = new File(url);
+
+            InputStream in = new FileInputStream(file);
+            result = IOUtils.toByteArray(in);
+
+            return result;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }
