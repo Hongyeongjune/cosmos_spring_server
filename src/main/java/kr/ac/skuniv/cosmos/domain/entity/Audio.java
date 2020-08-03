@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Audio {
 
-    public List<String> AudioPath;  //mp3파일 저장 되어있는 경로
+    public String[] AudioPath;  //mp3파일 저장 되어있는 경로
     public int AudioFileIndex;      // ??
     public double AudioCurrentPosition; // ??
 

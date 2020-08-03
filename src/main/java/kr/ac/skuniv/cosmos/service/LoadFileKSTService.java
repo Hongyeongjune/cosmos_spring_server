@@ -1,0 +1,114 @@
+package kr.ac.skuniv.cosmos.service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.ac.skuniv.cosmos.domain.dto.AnalysisResultDto;
+import kr.ac.skuniv.cosmos.domain.dto.UserDto;
+import kr.ac.skuniv.cosmos.domain.entity.KSTProject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class LoadFileKSTService {
+
+    @Autowired
+    public RestTemplate restTemplate;
+
+    public static String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+
+
+    public List<String> loadFileList(UserDto userDto) throws Exception {
+
+        if(userDto.getUser().equals("guest")) {
+            throw new Exception("Guest Error");
+        }
+
+        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+        File[] files = path.listFiles();
+        List<String> fileName = new ArrayList<>();
+        try {
+            for(int i=0; i<files.length; i++) {
+                File file = files[i];
+                if(file.isFile()) {
+                    fileName.add(file.getName());
+                }
+            }
+        } catch (Exception e) {
+
+        }
+
+        return fileName;
+    }
+
+    public void loadLocalFileAndSave(MultipartFile multipartFile, UserDto userDto) throws IOException {
+
+        String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+
+        if(userDto.getUser().equals("user")) {
+            multipartFile.transferTo(new File(absolutePath + "\\user\\temp\\" + multipartFile.getOriginalFilename()));
+        }
+        else if(userDto.getUser().equals("guest")) {
+            multipartFile.transferTo(new File(absolutePath + "\\guest\\temp" + multipartFile.getOriginalFilename()));
+        }
+    }
+
+    public void loadServerFileAndSave(UserDto userDto){
+
+        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+        File[] files = path.listFiles();
+
+        try {
+            for (int i = 0; i < files.length; i++) {
+                File file = files[i];
+                if (file.isFile()) {
+                    if (file.getName().equals(userDto.getFileName())) {
+
+                        File originFilePath = new File(absolutePath + "\\user\\" + userDto.getId() + "\\" + file.getName());
+                        File copyFilePath = new File(absolutePath + "\\user\\temp\\" + file.getName());
+
+                        FileInputStream fileInputStream = null;
+                        FileOutputStream fileOutputStream = null;
+                        try {
+                            fileInputStream = new FileInputStream(originFilePath);
+                            fileOutputStream = new FileOutputStream(copyFilePath);
+                            int fileByte = 0;
+
+                            while ((fileByte = fileInputStream.read()) != -1) {
+                                fileOutputStream.write(fileByte);
+                            }
+
+                        } catch (FileNotFoundException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } finally {
+                            fileInputStream.close();
+                            fileOutputStream.close();
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadFileData(KSTProject kstProject) {
+        KSTProject result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/load/kst", kstProject, KSTProject.class);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        System.out.println(result.getVersion());
+        System.out.println(result.getM_Option().getStringOption());
+        for(int i=0; i<result.getM_Option().getSpeakerList().length; i++) {
+            System.out.println(result.getM_Option().getSpeakerList()[i]);
+        }
+
+    }
+}

@@ -35,7 +35,7 @@ public class Header {
      * Comment : 코멘트(헤더마법사)
      */
     private String speechType;
-    private List<String> arrParticipants;
+    private String[] arrParticipants;
     private List<ID> arrID;
     private String Language = "";
     private String BirthOfCHI = "";

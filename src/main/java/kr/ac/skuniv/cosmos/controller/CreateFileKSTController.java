@@ -1,5 +1,6 @@
 package kr.ac.skuniv.cosmos.controller;
 
+import kr.ac.skuniv.cosmos.domain.dto.UserDto;
 import kr.ac.skuniv.cosmos.domain.entity.KSTProject;
 import kr.ac.skuniv.cosmos.service.CreateFileKSTService;
 import org.springframework.web.bind.annotation.PostMapping;

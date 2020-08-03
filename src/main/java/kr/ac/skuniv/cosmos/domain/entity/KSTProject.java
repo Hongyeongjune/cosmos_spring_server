@@ -1,5 +1,6 @@
 package kr.ac.skuniv.cosmos.domain.entity;
 
+import kr.ac.skuniv.cosmos.domain.dto.UserDto;
 import kr.ac.skuniv.cosmos.domain.entity.nouse.Data;
 import kr.ac.skuniv.cosmos.domain.entity.nouse.KFilePath;
 import kr.ac.skuniv.cosmos.domain.entity.nouse.UndoData;
@@ -22,7 +23,7 @@ public class KSTProject {
     private KTierVer2 m_KTierVer2;
     private KTierMorpVer2 m_KTierMorpVer2;
     private Audio m_Audio;
-
+    private UserDto userDto;
 
 //    private List<Data> m_data;
 //    private List<KData> m_KData;

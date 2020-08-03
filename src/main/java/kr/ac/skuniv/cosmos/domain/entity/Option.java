@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Option {
 
-    public String[] SpeakerList;    //발화자 리스트
-    public String StringOption = "0000000"; // 이건 역할이 뭐지?
+    public String[] speakerList;    //발화자 리스트
+    public String stringOption = "0000000"; // 이건 역할이 뭐지?
 
 }

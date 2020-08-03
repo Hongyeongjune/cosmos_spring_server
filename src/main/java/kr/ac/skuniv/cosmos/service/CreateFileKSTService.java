@@ -1,6 +1,7 @@
 package kr.ac.skuniv.cosmos.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.ac.skuniv.cosmos.domain.dto.UserDto;
 import kr.ac.skuniv.cosmos.domain.entity.KSTProject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
