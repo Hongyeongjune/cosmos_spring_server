@@ -39,6 +39,7 @@ public class S3Uploader {
 
         try {
             fileName = dirName + "/" + fileName;
+
             return putS3(multipartFile.getInputStream(), fileName);
         } catch (IOException e) {
             e.printStackTrace();
@@ -76,6 +77,7 @@ public class S3Uploader {
         putObjectRequest.setCannedAcl(CannedAccessControlList.PublicRead);
         amazonS3Client.putObject(putObjectRequest);
 
+        System.out.println(amazonS3Client.getUrl(bucket, fileName).toString());
         return amazonS3Client.getUrl(bucket, fileName).toString();
     }
 

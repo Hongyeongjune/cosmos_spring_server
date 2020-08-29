@@ -17,8 +17,14 @@ public class FileUploadController {
 
     private final S3Uploader s3Uploader;
 
-    @PostMapping("/musicfile/upload")
-    public ResponseEntity<String> uploadMusicFile(@RequestParam("musicFile") MultipartFile multipartFile){
+    @PostMapping("/audioFile/upload")
+    public ResponseEntity<String> uploadMusicFile(@RequestParam("audioFile") MultipartFile multipartFile){
+        String fileName = UUID.randomUUID().toString();
+        return ResponseEntity.ok(s3Uploader.uploadFile(multipartFile, fileName));
+    }
+
+    @PostMapping("/audioFile/upload/part")
+    public ResponseEntity<String> uploadMusicFilePart(@RequestPart("audioFile") MultipartFile multipartFile){
         String fileName = UUID.randomUUID().toString();
         return ResponseEntity.ok(s3Uploader.uploadFile(multipartFile, fileName));
     }
