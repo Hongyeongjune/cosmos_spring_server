@@ -29,5 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/resources/aws.yml
 /src/main/resources/application.yml

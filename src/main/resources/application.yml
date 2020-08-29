@@ -1,9 +1,13 @@
 spring:
+  jwt:
+    secret: JsonWebTokenSecretKey
+
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/termproject?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-    username: hong9
-    password: sec031031!
+    url: jdbc:mysql://localhost:3306/kstars?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: admin
+    password: ruathsgkwk0!
 #    url: jdbc:mysql://db.cwv3ildpq0id.us-east-2.rds.amazonaws.com:3306/cosmos?verifyServerCertificate=false&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
 #    username: cosmos
 #    password: sec031031!
@@ -14,11 +18,13 @@ spring:
     show-sql: true
     database: mysql
 
-    servlet:
-      multipart:
-        enabled: true
-        max-file-size: 100MB
-        max-request-size: 100MB
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
 
 cloud:
   aws:
