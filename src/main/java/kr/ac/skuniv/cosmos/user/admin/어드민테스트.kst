@@ -1,0 +1,59 @@
+<KStars>
+    <Version>string</Version>
+    <Option>
+        <SpeakerList>string</SpeakerList>
+        <StringOption>string</StringOption>
+    </Option>
+    <Header>
+        <SpeechType>string</SpeechType>
+        <Participants>string</Participants>
+        <BirthPlaceOfCHI>string</BirthPlaceOfCHI>
+        <Location>string</Location>
+        <Situation>string</Situation>
+        <Recording>string</Recording>
+        <Transcriber>string</Transcriber>
+        <Reviewer>string</Reviewer>
+        <Comment>string</Comment>
+        <ID>
+            <IDCorpus>string</IDCorpus>
+            <IDCode>string</IDCode>
+            <IDDateOfBirth>string</IDDateOfBirth>
+            <IDAge>string</IDAge>
+            <IDSex>string</IDSex>
+            <IDGroup>string</IDGroup>
+            <IDRegion>string</IDRegion>
+            <IDSES>string</IDSES>
+            <IDEdu>string</IDEdu>
+            <IDRole>string</IDRole>
+        </ID>
+    </Header>
+    <Tier type="">
+        <Data uid="0">
+            <Speaker>코스모스</Speaker>
+            <Text>코스모스는 가을에 피어요.</Text>
+            <Time>string</Time>
+        </Data>
+        <Data uid="1">
+            <Speaker>신가은</Speaker>
+            <Text>테스트 내용입니다.</Text>
+            <Time>string</Time>
+        </Data>
+        <Data uid="2">
+            <Speaker>지영라</Speaker>
+            <Text>테스트 내용입니다.</Text>
+            <Time>string</Time>
+        </Data>
+    </Tier>
+    <Tier type="string">
+        <Data uid="string">
+            <Speaker>string</Speaker>
+            <MEtri>string</MEtri>
+            <MUser>string</MUser>
+        </Data>
+    </Tier>
+    <Audio>
+        <AudioPath>https://aws-kstars-file.s3.ap-northeast-2.amazonaws.com/kstars/e1bb5345-71de-4848-a1b4-b97bcd21e869</AudioPath>
+        <AudioFileIndex />
+        <AudioCurrentPosition />
+    </Audio>
+</KStars>

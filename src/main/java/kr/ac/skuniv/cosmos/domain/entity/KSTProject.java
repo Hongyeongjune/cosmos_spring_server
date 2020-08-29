@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 public class KSTProject {
 
-    private String Version;
+    private String version;
     private Option m_Option;
     private Header m_header;
     private KTierVer2 m_KTierVer2;

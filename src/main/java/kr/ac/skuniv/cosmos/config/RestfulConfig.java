@@ -27,7 +27,7 @@ public class RestfulConfig {
     public RestTemplate restTemplate() {
 
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setReadTimeout(READ_TIMEOUT);
+//        factory.setReadTimeout(READ_TIMEOUT);
         factory.setConnectTimeout(CONNECT_TIMEOUT);
 
         HttpClient httpClient = HttpClientBuilder.create()

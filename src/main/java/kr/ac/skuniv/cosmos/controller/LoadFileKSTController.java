@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * kst파일 불러오기
+ */
 @RestController
 @RequestMapping("/cosmos/kStars")
 public class LoadFileKSTController {

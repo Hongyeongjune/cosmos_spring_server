@@ -1,0 +1,49 @@
+<KStars>
+    <Version>string</Version>
+    <Option>
+        <SpeakerList>string</SpeakerList>
+        <StringOption>string</StringOption>
+    </Option>
+    <Header>
+        <SpeechType>string</SpeechType>
+        <Participants>string</Participants>
+        <BirthPlaceOfCHI>string</BirthPlaceOfCHI>
+        <Location>string</Location>
+        <Situation>string</Situation>
+        <Recording>string</Recording>
+        <Transcriber>string</Transcriber>
+        <Reviewer>string</Reviewer>
+        <Comment>string</Comment>
+        <ID>
+            <IDCorpus>string</IDCorpus>
+            <IDCode>string</IDCode>
+            <IDDateOfBirth>string</IDDateOfBirth>
+            <IDAge>string</IDAge>
+            <IDSex>string</IDSex>
+            <IDGroup>string</IDGroup>
+            <IDRegion>string</IDRegion>
+            <IDSES>string</IDSES>
+            <IDEdu>string</IDEdu>
+            <IDRole>string</IDRole>
+        </ID>
+    </Header>
+    <Tier type="">
+        <Data uid="0">
+            <Speaker>코스모스</Speaker>
+            <Text>코스모스는 가을에 피어요.</Text>
+            <Time>string</Time>
+        </Data>
+    </Tier>
+    <Tier type="string">
+        <Data uid="string">
+            <Speaker>string</Speaker>
+            <MEtri>string</MEtri>
+            <MUser>string</MUser>
+        </Data>
+    </Tier>
+    <Audio>
+        <AudioPath>https://aws-kstars-file.s3.ap-northeast-2.amazonaws.com/kstars/1f12ec14-3559-4a43-8126-fcf5e346bc2d</AudioPath>
+        <AudioFileIndex />
+        <AudioCurrentPosition />
+    </Audio>
+</KStars>

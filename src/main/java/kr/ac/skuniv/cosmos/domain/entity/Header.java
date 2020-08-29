@@ -37,15 +37,15 @@ public class Header {
     private String speechType;
     private String[] arrParticipants;
     private List<ID> arrID;
-    private String Language = "";
-    private String BirthOfCHI = "";
-    private String BirthPlaceOfCHI = "";
-    private String Date = "";
-    private String Location = "";
-    private String Situation = "";
-    private String Media = "";
-    private String Recording = "";
-    private String Transcriber = "";
-    private String Reviewer = "";
-    private String Comment = "";
+    private String language = "";
+    private String birthOfCHI = "";
+    private String birthPlaceOfCHI = "";
+    private String date = "";
+    private String location = "";
+    private String situation = "";
+    private String media = "";
+    private String recording = "";
+    private String transcriber = "";
+    private String reviewer = "";
+    private String comment = "";
 }
