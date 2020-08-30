@@ -21,7 +21,8 @@ public class LoadFileKSTService {
     @Autowired
     public RestTemplate restTemplate;
 
-    public static String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+//    public static String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+    public static String cloudAbsolutePath = "/home/ubuntu/kst";
 
 
     public List<String> loadFileList(UserDto userDto) throws Exception {
@@ -30,7 +31,8 @@ public class LoadFileKSTService {
             throw new Exception("Guest Error");
         }
 
-        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+//        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+        File path = new File(cloudAbsolutePath + "/user/" + userDto.getId());
         File[] files = path.listFiles();
         List<String> fileName = new ArrayList<>();
         try {
@@ -49,19 +51,23 @@ public class LoadFileKSTService {
 
     public void loadLocalFileAndSave(MultipartFile multipartFile, UserDto userDto) throws IOException {
 
-        String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+//        String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
+        String cloudAbsolutePath = "/home/ubuntu/kst";
 
         if(userDto.getUser().equals("user")) {
-            multipartFile.transferTo(new File(absolutePath + "\\user\\temp\\" + multipartFile.getOriginalFilename()));
+//            multipartFile.transferTo(new File(absolutePath + "\\user\\temp\\" + multipartFile.getOriginalFilename()));
+            multipartFile.transferTo(new File(cloudAbsolutePath + "/user/temp/" + multipartFile.getOriginalFilename()));
         }
         else if(userDto.getUser().equals("guest")) {
-            multipartFile.transferTo(new File(absolutePath + "\\guest\\temp" + multipartFile.getOriginalFilename()));
+//            multipartFile.transferTo(new File(absolutePath + "\\guest\\temp" + multipartFile.getOriginalFilename()));
+            multipartFile.transferTo(new File(cloudAbsolutePath + "/guest/temp" + multipartFile.getOriginalFilename()));
         }
     }
 
     public void loadServerFileAndSave(UserDto userDto){
 
-        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+//        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+        File path = new File(cloudAbsolutePath + "/user/" + userDto.getId());
         File[] files = path.listFiles();
 
         try {
@@ -70,8 +76,11 @@ public class LoadFileKSTService {
                 if (file.isFile()) {
                     if (file.getName().equals(userDto.getFileName())) {
 
-                        File originFilePath = new File(absolutePath + "\\user\\" + userDto.getId() + "\\" + file.getName());
-                        File copyFilePath = new File(absolutePath + "\\user\\temp\\" + file.getName());
+//                        File originFilePath = new File(absolutePath + "\\user\\" + userDto.getId() + "\\" + file.getName());
+//                        File copyFilePath = new File(absolutePath + "\\user\\temp\\" + file.getName());
+
+                        File originFilePath = new File(cloudAbsolutePath + "/user/" + userDto.getId() + "\\" + file.getName());
+                        File copyFilePath = new File(cloudAbsolutePath + "/user/temp/" + file.getName());
 
                         FileInputStream fileInputStream = null;
                         FileOutputStream fileOutputStream = null;
