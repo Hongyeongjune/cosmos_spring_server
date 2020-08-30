@@ -56,7 +56,8 @@ public class AnalysisService {
 
         if(analysisDto.getAnalysisType().equals("wsdAPI")) {
 
-            AnalysisDto result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morp", analysisDto, AnalysisDto.class);
+//            AnalysisDto result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morp", analysisDto, AnalysisDto.class);
+            AnalysisDto result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/morp", analysisDto, AnalysisDto.class);
 
             ObjectMapper objectMapper = new ObjectMapper();
 
@@ -118,16 +119,16 @@ public class AnalysisService {
 
     public List<AnalysisDto> analysisListService(List<AnalysisDto> analysisDtos) {
 
-        List<AnalysisDto> result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morpList", analysisDtos, List.class);
+//        List<AnalysisDto> result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morpList", analysisDtos, List.class);
+        List<AnalysisDto> result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/morpList", analysisDtos, List.class);
 
         return result;
     }
 
     public List<AnalysisDto> analysisListTestService(List<AnalysisDto> analysisDtos) {
 
-        List<AnalysisDto> result = restTemplate
-                .postForObject("http://localhost:5000/cosmos/KStars/morpList/KoNLPy", analysisDtos, List.class);
-
+//        List<AnalysisDto> result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/morpList/KoNLPy", analysisDtos, List.class);
+        List<AnalysisDto> result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/morpList/KoNLPy", analysisDtos, List.class);
         return result;
     }
 }

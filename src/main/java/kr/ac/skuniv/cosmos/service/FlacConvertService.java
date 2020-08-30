@@ -21,7 +21,8 @@ public class FlacConvertService {
 
     public void convertToFlac(ConvertDto convertDto) {
 
-        ConvertDto file = restTemplate.postForObject("http://localhost:5000/convert", convertDto, ConvertDto.class);
+//        ConvertDto file = restTemplate.postForObject("http://localhost:5000/convert", convertDto, ConvertDto.class);
+        ConvertDto file = restTemplate.postForObject("http://18.221.109.14:5000/convert", convertDto, ConvertDto.class);
 
         String fileName = file.getFilePath();
 

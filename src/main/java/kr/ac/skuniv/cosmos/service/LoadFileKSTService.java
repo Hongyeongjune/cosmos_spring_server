@@ -109,8 +109,8 @@ public class LoadFileKSTService {
     }
 
     public void loadFileData(KSTProject kstProject) {
-        KSTProject result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/load/kst", kstProject, KSTProject.class);
-
+//        KSTProject result = restTemplate.postForObject("http://localhost:5000/cosmos/KStars/load/kst", kstProject, KSTProject.class);
+        KSTProject result = restTemplate.postForObject("http://18.221.109.14:5000/cosmos/KStars/load/kst", kstProject, KSTProject.class);
         ObjectMapper objectMapper = new ObjectMapper();
 
         System.out.println(result.getVersion());
