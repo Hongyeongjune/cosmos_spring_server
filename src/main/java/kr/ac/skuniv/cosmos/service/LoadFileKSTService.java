@@ -27,7 +27,7 @@ public class LoadFileKSTService {
     private JwtService jwtService;
 
 //    public static String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
-    public static String cloudAbsolutePath = "/home/ubuntu/kst";
+    public static String cloudAbsolutePath = "\\home\\ubuntu\\kst";
 
 
     public List<String> loadFileList(UserDto userDto) throws Exception {
