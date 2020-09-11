@@ -37,6 +37,8 @@ public class LoadFileKSTService {
         }
 
 //        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+
+        
             File path = new File(cloudAbsolutePath + "/user/" + userDto.getId());
             File[] files = path.listFiles();
             List<String> fileName = new ArrayList<>();
