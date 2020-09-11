@@ -26,7 +26,7 @@ public class LoadFileKSTService {
     @Autowired
     private JwtService jwtService;
 
-    public static String absolutePath = "C:\\Users\\User\\eclipse-workspace\\K-Stars\\src\\main\\java\\kr\\ac\\skuniv\\cosmos";
+//    public static String absolutePath = "C:\\Users\\User\\eclipse-workspace\\K-Stars\\src\\main\\java\\kr\\ac\\skuniv\\cosmos";
     public static String cloudAbsolutePath = "\\home\\ubuntu\\kst";
 
 
@@ -61,8 +61,8 @@ public class LoadFileKSTService {
         if(!member.getRole().equals("USER"))
             throw new Exception("Guest Error");
 
-        File path = new File(absolutePath + "\\user\\" + member.getEmail());
-//        File path = new File(cloudAbsolutePath + "\\user\\" + member.getId());
+//        File path = new File(absolutePath + "\\user\\" + member.getEmail());
+        File path = new File(cloudAbsolutePath + "\\user\\" + member.getEmail());
         System.out.println(path);
         File[] files = path.listFiles();
         List<String> fileName = new ArrayList<>();
