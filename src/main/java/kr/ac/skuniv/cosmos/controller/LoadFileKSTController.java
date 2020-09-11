@@ -1,6 +1,7 @@
 package kr.ac.skuniv.cosmos.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kr.ac.skuniv.cosmos.domain.dto.TokenDto;
 import kr.ac.skuniv.cosmos.domain.dto.UserDto;
 import kr.ac.skuniv.cosmos.domain.entity.*;
 import kr.ac.skuniv.cosmos.service.LoadFileKSTService;
@@ -37,8 +38,8 @@ public class LoadFileKSTController {
     }
 
     @PostMapping("/load/kst/token")
-    public List<String> loadFileKSTByToken(@RequestHeader("token") String token) throws Exception {
-        List<String> list = loadFileKSTService.loadFileListByToken(token);
+    public List<String> loadFileKSTByToken(@RequestBody TokenDto tokenDto) throws Exception {
+        List<String> list = loadFileKSTService.loadFileListByToken(tokenDto.getToken());
         for(int i=0; i<list.size(); i++) {
             System.out.println(list.get(i));
         }
