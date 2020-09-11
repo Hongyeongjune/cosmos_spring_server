@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.ac.skuniv.cosmos.domain.dto.AnalysisResultDto;
 import kr.ac.skuniv.cosmos.domain.dto.UserDto;
 import kr.ac.skuniv.cosmos.domain.entity.KSTProject;
+import kr.ac.skuniv.cosmos.domain.entity.member.Member;
+import kr.ac.skuniv.cosmos.jwt.JwtService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -21,6 +23,9 @@ public class LoadFileKSTService {
     @Autowired
     public RestTemplate restTemplate;
 
+    @Autowired
+    private JwtService jwtService;
+
 //    public static String absolutePath = "C:/Users/User/eclipse-workspace/K-Stars/src/main/java/kr/ac/skuniv/cosmos";
     public static String cloudAbsolutePath = "/home/ubuntu/kst";
 
@@ -32,7 +37,32 @@ public class LoadFileKSTService {
         }
 
 //        File path = new File(absolutePath + "\\user\\" + userDto.getId());
-        File path = new File(cloudAbsolutePath + "/user/" + userDto.getId());
+            File path = new File(cloudAbsolutePath + "/user/" + userDto.getId());
+            File[] files = path.listFiles();
+            List<String> fileName = new ArrayList<>();
+            try {
+                for(int i=0; i<files.length; i++) {
+                    File file = files[i];
+                    if(file.isFile()) {
+                        fileName.add(file.getName());
+                    }
+                }
+            } catch (Exception e) {
+
+        }
+
+        return fileName;
+    }
+
+    public List<String> loadFileListByToken(String token) throws Exception {
+
+        Member member = jwtService.findMemberByToken(token);
+
+        if(!member.getRole().equals("USER"))
+            throw new Exception("Guest Error");
+
+//        File path = new File(absolutePath + "\\user\\" + userDto.getId());
+        File path = new File(cloudAbsolutePath + "\\user\\" + member.getId());
         File[] files = path.listFiles();
         List<String> fileName = new ArrayList<>();
         try {

@@ -31,11 +31,17 @@ public class LoadFileKSTController {
     @PostMapping("/load/kst")
     public void loadFileKST(@RequestBody UserDto userDto) throws Exception {
         List<String> list = loadFileKSTService.loadFileList(userDto);
-
         for(int i=0; i<list.size(); i++) {
             System.out.println(list.get(i));
         }
+    }
 
+    @PostMapping("/load/kst/token")
+    public void loadFileKSTByToken(@RequestHeader("token") String token) throws Exception {
+        List<String> list = loadFileKSTService.loadFileListByToken(token);
+        for(int i=0; i<list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
 
     @PostMapping("load/kst/localFile")
